@@ -2,6 +2,8 @@
 
 用于 WorkBuddy 的出差费用报销仓库模板。
 
+发布说明见：`docs/releases/v1.0.0.md`
+
 ## 仓库结构
 
 ```text
