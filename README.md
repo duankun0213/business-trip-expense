@@ -15,6 +15,7 @@
       references/
 scripts/
   install-user.ps1
+LICENSE
 ```
 
 ## 用法
@@ -37,7 +38,7 @@ scripts/
 powershell -ExecutionPolicy Bypass -File .\scripts\install-user.ps1
 ```
 
-安装后把下面两个文件复制到用户目录：
+安装后会把下面两项复制到用户目录：
 
 - `~/.codebuddy/skills/business-trip-expense/`
 - `~/.codebuddy/commands/出差报销.md`
@@ -54,3 +55,4 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install-user.ps1
 - `SKILL.md` 负责技能逻辑
 - `/出差报销` 斜杠命令负责把文件夹路径交给技能处理
 - 生成文件默认下载到传入文件夹下的 `expense-output-<session_id>` 目录
+- 仓库包含 MIT `LICENSE`
