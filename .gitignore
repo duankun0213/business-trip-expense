@@ -10,6 +10,7 @@ __pycache__/
 expense-output-*/
 *.zip
 .tmp-home/
+release-assets/
 
 # Editor
 .DS_Store

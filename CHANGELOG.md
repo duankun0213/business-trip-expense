@@ -1,0 +1,32 @@
+# Changelog
+
+所有重要变更都会记录在这个文件中。
+
+## v1.0.0 - 2026-03-30
+
+### Added
+
+- 新增 WorkBuddy Skill：`business-trip-expense`
+- 新增斜杠命令：`/出差报销`
+- 新增用户级安装脚本：`scripts/install-user.ps1`
+- 新增公开版 `README.md`
+- 新增发布说明与 GitHub Release 正文模板
+- 新增团队内部安装说明文档
+
+### Integrated
+
+- 接入远程报销 API：
+  - `POST http://47.111.23.9/expense/process`
+  - `GET http://47.111.23.9/expense/download/{session_id}/hoa001`
+  - `GET http://47.111.23.9/expense/download/{session_id}/hoa002`
+
+### Packaging
+
+- 提供面向最终用户的正式安装包：`business-trip-expense-v1.0.0.zip`
+- 提供面向团队分发的 marketplace 包：`workbuddy-business-trip-expense-marketplace.zip`
+
+### Notes
+
+- 默认不下载 zip 打包文件
+- 输出目录默认创建在传入文件夹下，命名为 `expense-output-<session_id>`
+- 结果生成依赖远程 API 服务可用性
