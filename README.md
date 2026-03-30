@@ -77,6 +77,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install-user.ps1
 - 发布说明：`docs/releases/v1.0.0.md`
 - GitHub Release 正文模板：`docs/releases/github-release-v1.0.0.md`
 - 团队安装说明：`docs/team-install.md`
+- 同事从零使用说明：`docs/workbuddy-colleague-guide.md`
 - 更新日志：`CHANGELOG.md`
 
 ## English
