@@ -11,9 +11,10 @@
 
 - Use `multipart/form-data`.
 - Upload travel approval PDFs as `travel_0`, `travel_1`, and so on.
-- Upload invoice or itinerary PDFs as `invoice_0`, `invoice_1`, and so on.
-- Classify a PDF as a travel approval file when its filename or any parent folder name contains `商旅` or `出差`.
-- Treat every other PDF as an invoice or itinerary file.
+- Upload invoice, itinerary, or receipt files as `invoice_0`, `invoice_1`, and so on.
+- Approval files are identified from PDF filenames or their immediate parent folder names containing `商旅` or `出差`.
+- Common invoice inputs can include PDF plus image files such as `.jpg`, `.jpeg`, `.png`, `.bmp`, `.tiff`, `.tif`, and `.webp`.
+- Treat every other supported file as an invoice or itinerary input.
 
 ## Expected Response
 
@@ -27,4 +28,5 @@
 - Download and surface:
   - `HOA-001出差费用报销汇总表.xls`
   - `HOA-002交通费明细单.xlsx`
+- Save the full JSON response as `preview.json` for later checking.
 - Download `all` only when the user explicitly requests the bundled archive.

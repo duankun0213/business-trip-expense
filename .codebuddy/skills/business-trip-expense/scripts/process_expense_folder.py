@@ -1,6 +1,6 @@
 ﻿#!/usr/bin/env python3
 """
-Process a folder of business-trip reimbursement PDFs through a remote API.
+Process a folder of business-trip reimbursement files through a remote API.
 """
 
 from __future__ import annotations
@@ -31,13 +31,26 @@ OUTPUT_NAMES = {
     "hoa002": "HOA-002\u4ea4\u901a\u8d39\u660e\u7ec6\u5355.xlsx",
     "all": "expense-files.zip",
 }
+SUPPORTED_EXTENSIONS = {
+    ".pdf",
+    ".jpg",
+    ".jpeg",
+    ".png",
+    ".bmp",
+    ".tiff",
+    ".tif",
+    ".webp",
+}
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Upload trip PDFs to the reimbursement API and download HOA outputs.",
+        description="Upload approval PDFs and invoice PDF/image files to the reimbursement API.",
     )
-    parser.add_argument("folder", help="Folder containing approval PDFs and invoice PDFs")
+    parser.add_argument(
+        "folder",
+        help="Folder containing approval PDFs plus invoice PDF/image files",
+    )
     parser.add_argument(
         "--output-dir",
         help="Directory for downloaded outputs. Defaults to <folder>/expense-output-<session_id> after upload.",
@@ -56,8 +69,12 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def collect_pdfs(folder: Path) -> List[Path]:
-    return sorted(path for path in folder.rglob("*") if path.is_file() and path.suffix.lower() == ".pdf")
+def collect_supported_files(folder: Path) -> List[Path]:
+    return sorted(
+        path
+        for path in folder.rglob("*")
+        if path.is_file() and path.suffix.lower() in SUPPORTED_EXTENSIONS
+    )
 
 
 def configure_stdio() -> None:
@@ -67,21 +84,25 @@ def configure_stdio() -> None:
             stream.reconfigure(encoding="utf-8", errors="replace")
 
 
-def is_travel_pdf(path: Path, root: Path) -> bool:
+def is_travel_file(path: Path, root: Path) -> bool:
+    if path.suffix.lower() != ".pdf":
+        return False
+
     parts = [path.name]
     try:
         relative = path.relative_to(root)
-        parts.extend(part for part in relative.parts[:-1])
+        if len(relative.parts) > 1:
+            parts.append(relative.parts[-2])
     except ValueError:
-        parts.extend(parent.name for parent in path.parents)
+        parts.append(path.parent.name)
     return any(keyword in part for part in parts for keyword in KEYWORDS)
 
 
-def classify_pdfs(paths: Sequence[Path], root: Path) -> Tuple[List[Path], List[Path]]:
+def classify_files(paths: Sequence[Path], root: Path) -> Tuple[List[Path], List[Path]]:
     travel = []
     invoices = []
     for path in paths:
-        if is_travel_pdf(path, root):
+        if is_travel_file(path, root):
             travel.append(path)
         else:
             invoices.append(path)
@@ -170,21 +191,24 @@ def main() -> int:
         print(f"Folder not found or not a directory: {folder}", file=sys.stderr)
         return 1
 
-    pdfs = collect_pdfs(folder)
-    if not pdfs:
-        print(f"No PDF files found under: {folder}", file=sys.stderr)
+    files = collect_supported_files(folder)
+    if not files:
+        print(
+            f"No supported files found under: {folder}. Expected PDF or common image files.",
+            file=sys.stderr,
+        )
         return 1
 
-    travel, invoices = classify_pdfs(pdfs, folder)
+    travel, invoices = classify_files(files, folder)
     if not travel:
         print(
-            "No travel approval PDF found. Expected a filename or parent folder containing business-trip keywords.",
+            "No travel approval PDF found. Expected the filename or immediate parent folder to contain business-trip keywords.",
             file=sys.stderr,
         )
         return 1
 
     print_file_group("Travel approval PDFs:", travel)
-    print_file_group("Invoice/itinerary PDFs:", invoices)
+    print_file_group("Invoice/itinerary files:", invoices)
 
     try:
         payload = post_files(build_upload_fields(travel, invoices), args.timeout)
