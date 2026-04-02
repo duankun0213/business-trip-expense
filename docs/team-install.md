@@ -10,7 +10,7 @@ This document can be forwarded directly to team members who need to install and 
 
 普通同事默认推荐：
 
-- 下载 Release 页面里的 `business-trip-expense-v1.0.0.zip`
+- 下载 Release 页面里的 `business-trip-expense-v1.1.0.zip`
 
 如果你希望安装内容和当前云端能力完全同步，推荐：
 
@@ -19,8 +19,8 @@ This document can be forwarded directly to team members who need to install and 
 
 补充说明：
 
-- `v1.0.0` 是首个稳定发布包，覆盖核心的文件夹到 API 报销流程
-- 当前仓库 `main` 分支已经按新版云端服务能力更新脚本与说明
+- `v1.1.0` 已对齐当前云端服务能力和最新 GitHub 说明
+- `v1.0.0` 保留为首个稳定发布包，方便历史回溯
 
 ### 安装前准备
 
@@ -57,11 +57,11 @@ This document can be forwarded directly to team members who need to install and 
 
 ### 从零开始安装
 
-1. 下载 `business-trip-expense-v1.0.0.zip`，或克隆仓库最新代码
+1. 下载 `business-trip-expense-v1.1.0.zip`，或克隆仓库最新代码
 2. 解压到任意本地目录，例如：
 
 ```text
-C:\Users\你的用户名\Downloads\business-trip-expense-v1.0.0
+C:\Users\你的用户名\Downloads\business-trip-expense-v1.1.0
 ```
 
 3. 打开 PowerShell，进入解压目录或仓库根目录
@@ -79,7 +79,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install-user.ps1
 - 如果压缩包解压在 `D:` 盘，可以这样执行：
 
 ```powershell
-cd "D:\business-trip-expense-v1.0.0"
+cd "D:\business-trip-expense-v1.1.0"
 powershell -ExecutionPolicy Bypass -File .\scripts\install-user.ps1
 ```
 
@@ -178,7 +178,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install-user.ps1
 -ExecutionPolicy Bypass -File .\scripts\install-user.ps1
 ```
 
-#### 6. 什么时候该用仓库主分支，而不是 `v1.0.0` 包
+#### 6. 什么时候该用仓库主分支，而不是 `v1.1.0` 包
 
 以下情况建议直接从仓库 `main` 分支安装：
 
@@ -196,7 +196,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install-user.ps1
 
 For most end users:
 
-- Download `business-trip-expense-v1.0.0.zip` from the Release page
+- Download `business-trip-expense-v1.1.0.zip` from the Release page
 
 If you want the installed files to match the latest cloud behavior exactly:
 
@@ -205,8 +205,8 @@ If you want the installed files to match the latest cloud behavior exactly:
 
 Notes:
 
-- `v1.0.0` is the first stable installer and covers the core folder-to-API workflow
-- The repository `main` branch already reflects the newer cloud-side capabilities
+- `v1.1.0` is aligned with the current cloud-side behavior and latest docs
+- `v1.0.0` remains available as the first stable historical package
 
 ### Before You Start
 
@@ -243,11 +243,11 @@ Approval detection rules:
 
 ### Fresh Installation Steps
 
-1. Download `business-trip-expense-v1.0.0.zip`, or clone the latest repository
+1. Download `business-trip-expense-v1.1.0.zip`, or clone the latest repository
 2. Extract it to any local folder, for example:
 
 ```text
-C:\Users\YourName\Downloads\business-trip-expense-v1.0.0
+C:\Users\YourName\Downloads\business-trip-expense-v1.1.0
 ```
 
 3. Open PowerShell and enter the extracted folder or repository root
@@ -265,7 +265,7 @@ Important:
 - If the package is extracted on drive `D:`, first change into that folder and then run the command
 
 ```powershell
-cd "D:\business-trip-expense-v1.0.0"
+cd "D:\business-trip-expense-v1.1.0"
 powershell -ExecutionPolicy Bypass -File .\scripts\install-user.ps1
 ```
 
@@ -358,7 +358,7 @@ Wrong command:
 -ExecutionPolicy Bypass -File .\scripts\install-user.ps1
 ```
 
-#### 6. When should you install from `main` instead of the `v1.0.0` package
+#### 6. When should you install from `main` instead of the `v1.1.0` package
 
 Use the repository `main` branch if:
 

@@ -61,9 +61,9 @@ WorkBuddy 出差费用报销技能仓库。
 
 #### 方式 2：安装到用户目录，全局使用
 
-普通同事默认可以继续使用 Release 页面里的：
+普通同事默认推荐使用 Release 页面里的：
 
-- `business-trip-expense-v1.0.0.zip`
+- `business-trip-expense-v1.1.0.zip`
 
 不建议普通使用者下载：
 
@@ -73,9 +73,9 @@ WorkBuddy 出差费用报销技能仓库。
 
 说明：
 
-- `v1.0.0` 是首个稳定发布包，覆盖核心的文件夹到 API 报销流程
-- 当前仓库 `main` 分支已经对齐更新后的云端能力和文档
-- 如果你希望安装内容和当前云端行为完全同步，优先从仓库根目录执行安装脚本，或在后续发布新的安装包
+- `v1.1.0` 对齐了当前云端服务能力和最新 GitHub 说明
+- `v1.0.0` 仍保留为首个稳定发布包，方便历史回溯
+- 如果你希望安装内容和当前仓库一致，优先使用 `v1.1.0` 或从仓库根目录执行安装脚本
 
 在仓库根目录或解压后的安装包根目录执行：
 
@@ -91,7 +91,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install-user.ps1
 例如：
 
 ```powershell
-cd "D:\business-trip-expense-v1.0.0"
+cd "D:\business-trip-expense-v1.1.0"
 powershell -ExecutionPolicy Bypass -File .\scripts\install-user.ps1
 ```
 
@@ -110,9 +110,12 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install-user.ps1
 
 ### 发布产物
 
+- `business-trip-expense-v1.1.0.zip`
+  - 面向最终使用者的当前推荐安装包
+  - 已对齐当前云端服务能力与最新说明
 - `business-trip-expense-v1.0.0.zip`
-  - 面向最终使用者的首个稳定安装包
-  - 适合核心 PDF 报销流程
+  - 历史安装包
+  - 保留首个稳定发布版本
 - `workbuddy-business-trip-expense-marketplace.zip`
   - 面向管理员或高级用户的团队分发包
   - 保留 marketplace 或 plugin 结构
@@ -130,7 +133,9 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install-user.ps1
 
 - 团队安装说明：`docs/team-install.md`
 - 同事从零使用说明：`docs/workbuddy-colleague-guide.md`
+- 最新发布说明：`docs/releases/v1.1.0.md`
 - 发布说明：`docs/releases/v1.0.0.md`
+- 最新 GitHub Release 正文模板：`docs/releases/github-release-v1.1.0.md`
 - GitHub Release 正文模板：`docs/releases/github-release-v1.0.0.md`
 - 更新日志：`CHANGELOG.md`
 
@@ -191,9 +196,9 @@ This path is best when you want the latest cloud-aligned behavior immediately.
 
 #### Option 2: Install it globally for the current user
 
-Most end users can still use the Release package:
+Most end users should use the Release package:
 
-- `business-trip-expense-v1.0.0.zip`
+- `business-trip-expense-v1.1.0.zip`
 
 Regular users usually do not need:
 
@@ -201,9 +206,9 @@ Regular users usually do not need:
 
 Notes:
 
-- `v1.0.0` is the first stable installer and covers the core folder-to-API reimbursement flow
-- The current `main` branch already reflects newer cloud-side capabilities and docs
-- If you want the installed files to match the latest cloud behavior exactly, install from the repository root or publish a newer package
+- `v1.1.0` matches the current cloud-side behavior and latest GitHub docs
+- `v1.0.0` remains available as the first stable historical package
+- If you want the installed files to match the repository exactly, prefer `v1.1.0` or install from the repository root
 
 Run this command from the repository root or the extracted installer root:
 
@@ -219,7 +224,7 @@ Important:
 Example:
 
 ```powershell
-cd "D:\business-trip-expense-v1.0.0"
+cd "D:\business-trip-expense-v1.1.0"
 powershell -ExecutionPolicy Bypass -File .\scripts\install-user.ps1
 ```
 
@@ -238,9 +243,12 @@ Additional notes:
 
 ### Release Artifacts
 
+- `business-trip-expense-v1.1.0.zip`
+  - Current recommended end-user installer
+  - Aligned with the current cloud service behavior
 - `business-trip-expense-v1.0.0.zip`
-  - First stable end-user installer
-  - Best suited for the core PDF-based reimbursement flow
+  - Historical installer
+  - Preserves the first stable release
 - `workbuddy-business-trip-expense-marketplace.zip`
   - Team-distribution package for admins or advanced users
   - Preserves marketplace or plugin-oriented structure
@@ -258,7 +266,9 @@ Additional notes:
 
 - Team installation guide: `docs/team-install.md`
 - Colleague quick-start guide: `docs/workbuddy-colleague-guide.md`
+- Latest release notes: `docs/releases/v1.1.0.md`
 - Release notes: `docs/releases/v1.0.0.md`
+- Latest GitHub Release body template: `docs/releases/github-release-v1.1.0.md`
 - GitHub Release body template: `docs/releases/github-release-v1.0.0.md`
 - Changelog: `CHANGELOG.md`
 

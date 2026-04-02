@@ -8,9 +8,9 @@
 
 默认下载：
 
-`business-trip-expense-v1.0.0.zip`
+`business-trip-expense-v1.1.0.zip`
 
-它是首个稳定发布包，适合大多数核心报销场景。
+它是当前推荐的正式安装包，已经对齐最新发布说明。
 
 ### 2. 想跟上最新云端能力的人
 
@@ -100,12 +100,12 @@ C:\Users\你的用户名\Desktop\报销材料\test01
 
 打开 GitHub Release 页面，下载：
 
-`business-trip-expense-v1.0.0.zip`
+`business-trip-expense-v1.1.0.zip`
 
 下载后，把它解压到一个你容易找到的位置，例如：
 
 ```text
-C:\Users\你的用户名\Downloads\business-trip-expense-v1.0.0
+C:\Users\你的用户名\Downloads\business-trip-expense-v1.1.0
 ```
 
 ## 七、安装到 WorkBuddy
@@ -115,7 +115,7 @@ C:\Users\你的用户名\Downloads\business-trip-expense-v1.0.0
 进入刚才解压后的目录，例如：
 
 ```powershell
-cd "C:\Users\你的用户名\Downloads\business-trip-expense-v1.0.0"
+cd "C:\Users\你的用户名\Downloads\business-trip-expense-v1.1.0"
 ```
 
 ### 第二步：执行安装脚本
@@ -134,10 +134,10 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install-user.ps1
 注意：
 
 - 这条命令必须在当前目录能看到 `.codebuddy` 和 `scripts` 时执行
-- 如果你解压在 `D:` 盘，例如 `D:\business-trip-expense-v1.0.0`，可以这样执行：
+- 如果你解压在 `D:` 盘，例如 `D:\business-trip-expense-v1.1.0`，可以这样执行：
 
 ```powershell
-cd "D:\business-trip-expense-v1.0.0"
+cd "D:\business-trip-expense-v1.1.0"
 powershell -ExecutionPolicy Bypass -File .\scripts\install-user.ps1
 ```
 
@@ -204,7 +204,7 @@ expense-output-<session_id>
 
 给同事的最简单流程就是：
 
-1. 从 GitHub Release 下载 `business-trip-expense-v1.0.0.zip`
+1. 从 GitHub Release 下载 `business-trip-expense-v1.1.0.zip`
 2. 解压
 3. 运行安装脚本
 4. 重启 WorkBuddy
@@ -263,7 +263,7 @@ expense-output-<session_id>
 
 普通同事：
 
-- 下载 `business-trip-expense-v1.0.0.zip`
+- 下载 `business-trip-expense-v1.1.0.zip`
 
 管理员或高级用户：
 
@@ -297,7 +297,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install-user.ps1
 你可以直接把下面这段话发给同事：
 
 ```text
-请到 GitHub Release 页面下载 business-trip-expense-v1.0.0.zip，解压后在 PowerShell 里执行：
+请到 GitHub Release 页面下载 business-trip-expense-v1.1.0.zip，解压后在 PowerShell 里执行：
 powershell -ExecutionPolicy Bypass -File .\scripts\install-user.ps1
 然后重启 WorkBuddy。之后在 WorkBuddy 里输入：
 /出差报销 "你的报销文件夹路径"
